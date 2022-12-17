@@ -13,8 +13,8 @@ function F = gravityControl(x)
     c2 = cos(theta_2);
     c23 = cos(theta_2+theta_3);
 
-    tao2 = m2*g*lc2*c2+m3*g*(a2*c2+lc3*c23);
-    tao3 = m3*g*lc3*c23;
+    tao2 = - g*m3*(a2*c2 + lc3*c23) - g*lc2*m2*c2;
+    tao3 = - g*lc3*m3*c23;
 
     F = [tao2 tao3];
 end

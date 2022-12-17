@@ -30,7 +30,6 @@ function ddxdt = model3(x)
 
     %Desconsideramos a rigidez e a massa dos motores
     %Amortecimento associado ao motores
-    b = 100 ;
 
 
     %Matriz de inércias (matrix 3x3)
