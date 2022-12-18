@@ -1,10 +1,6 @@
 
 clc; clear; close all;
-g=9.81;
-syms l1 l2 l3
-syms q1 q2 q3
-syms m1 m2 m3
-syms i1 i2 i3
+
 
 % Ordem dos parâmetros: theta d a alpha
 DH = [0  0    0    -pi/2 ;
@@ -45,7 +41,6 @@ L(2).B=0;
 L(3).B=0;
 
 % robot
-qr = [1 0 0];
 q0= [1 0 0];
 rpy = [0, -pi/2, 0];
 T_des = rt2tr(rpy2r(rpy(1),rpy(2),rpy(3)),[0;0;0]);
@@ -53,7 +48,7 @@ T_des = rt2tr(rpy2r(rpy(1),rpy(2),rpy(3)),[0;0;0]);
 rob = SerialLink(L,'name','rob');
 rob.base =T_des;
 
-[t,q,qd] = rob.fdyn(6, @my_torque_function, qr);
+[t,q,qd] = rob.fdyn(6, @my_torque_function, q0);
 figure
 plot(t,q)
 
